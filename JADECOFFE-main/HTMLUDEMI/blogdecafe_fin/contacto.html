@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaviEmpeños</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        #map {
+            position: relative;
+            width: 760px;
+            height: 580px;
+            left: 550px;
+            top: -930px;
+        }
+    </style>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <header class="header">
+
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="index.html">
+                    <h1 class="logo__nombre no-margin centrar-texto">Javi<span class="logo__bold">Empeños</span></h1>
+                </a>
+
+                <nav class="navegacion">
+                    <a href="cursos.html" class="navegacion__enlace">Informacion</a>
+                    <a href="nosotros.html" class="navegacion__enlace">Productos</a>
+                    <a href="entrada.html" class="navegacion__enlace">Bascula</a>
+                    <a href="login.html" class="navegacion__enlace">Cierre de Sesion</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="header__texto">
+            <h2 class="no-margin">"En Javi Empeños, los recuerdos tienen un valor que va más allá de lo tangible."</h2>
+        </div>
+
+    </header>
+
+    <main class="contenedor">
+     
+        <h3 class="centrar-texto">Contacto</h3>
+        <main class="box">
+            <img src="img/empelogo.jpg" width="120" alt="" class="box-img">
+            <h1>JaviEmpeños</h1>
+            <h2>Dirección</h2>
+            <p>Dirección: Av. Universidad Tecnológica, No. 3051, Col. Lote Bravo II, Ciudad Juárez, Chihuahua
+                <br> Código postal: 32695</p>
+            <h2>Teléfono</h2>
+            <p>01 (656) 649-06-00</p>    
+            <ul>
+                <li>
+                    <a href="#" onclick="openFacebookProfile('123456789')">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="openTwitterProfile('nombredeusuario')">
+                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+            </ul>
+        
+        </main>
+        
+        <script>
+            function openFacebookProfile(userId) {
+                var profileLink = "https://www.facebook.com/" + userId;
+                window.open(profileLink, '_blank');
+            }
+    
+            function openTwitterProfile(username) {
+                var profileLink = "https://twitter.com/" + username;
+                window.open(profileLink, '_blank');
+            }
+        </script>
+           <section class="horarios">
+            <img src="eempe.png" alt="Horarios">
+               <div class="horarios-texto">
+                  <h3>Horarios de atención</h3>
+                 <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                  <p>Sábado: 10:00 AM - 2:00 PM</p>
+                <!-- Puedes agregar más información de horarios según sea necesario -->
+              </div>
+                 </section>
+      </section>
+    </main>
+    <div id="map"></div>   
+    <script>
+        mapboxgl.accessToken = "pk.eyJ1IjoiaW5nanVhbm1hc3VhcmV6IiwiYSI6ImNsZDZjMXJpYTFhdzgzdnBhZXdkczQxcnQifQ.25y1PWrOTW12YssZ73JQtA";
+
+        const mapa = new mapboxgl.Map({
+            container: "map",
+            style: "mapbox://styles/mapbox/satellite-streets-v12",
+            center: [-106.406235, 31.599095],
+            zoom: 16
+        });
+        new Marker()
+        .setLngLat(map.getCenter())
+        .addTo(map);
+    </script>
+       <!-------------------Seccion de horarios-------------------------------->
+
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="index.html">
+                    <h1 class="logo__nombre no-margin centrar-texto">Blog<span class="logo__bold">DeCafé</span></h1>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/modernizr.js"></script>
+</body>
+</html>

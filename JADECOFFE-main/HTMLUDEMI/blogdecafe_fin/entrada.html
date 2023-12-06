@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JaviEmpeños</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="index.html">
+                    <h1 class="logo_nombre no-margin centrar-texto">Javi<span class="logo_bold">Empeños</span></h1>
+                </a>
+
+                <nav class="navegacion">
+                    <a href="nosotros.html" class="navegacion__enlace">Productos</a>
+                    <a href="cursos.html" class="navegacion__enlace">Informacion</a>
+                    <a href="contacto.html" class="navegacion__enlace">Contacto</a>
+                    <a href="login.html" class="navegacion__enlace">Cierre de Sesion</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="header__texto">
+            <h2 class="no-margin">En JaviEmpeños, No solo hacemos préstamos, creamos soluciones</h2>
+            <p class="no-margin"> </p>
+        </div>
+    </header>
+        
+    <div class="container">
+        <h1>Pesa tu articulos</h1>
+        <form>
+          <label for="material">Material:</label>
+          <select id="material" name="material">
+            <option value="oro">Oro</option>
+            <option value="plata">Plata</option>
+            <option value="platino">Platino</option>
+            <option value="diamantes">Diamantes</option>
+          </select>
+    
+          <label for="peso">Peso (gramos):</label>
+          <input type="number" id="peso" name="peso" min="0" step="1" placeholder="Ingresa el peso del artículo">
+    
+          <button type="button" onclick="calcularPrestamo()">Calcular</button>
+        </form>
+    
+        <div id="resultado"></div>
+      </div>
+    
+      <script>
+        function calcularPrestamo() {
+          const material = document.getElementById('material').value;
+          const peso = parseFloat(document.getElementById('peso').value);
+    
+          const tasasInteres = {
+            oro: 0.75,
+            plata: 0.65,
+            platino: 1.00,
+            diamantes: 1.25
+          };
+    
+          const limitesPeso = {
+            oro: 100,
+            plata: 200,
+            platino: 500,
+            diamantes: 1000
+          };
+    
+          if (!tasasInteres[material]) {
+            alert('El material ingresado no es válido.');
+            return;
+          }
+    
+          if (peso < limitesPeso[material]) {
+            alert('El peso ingresado es menor al límite permitido.');
+            return;
+          }
+    
+          const prestamo = peso * tasasInteres[material];
+    
+          const resultado = document.getElementById('resultado');
+          resultado.innerHTML = `El monto del préstamo es de: $${prestamo}`;
+        }
+      </script>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="index.html">
+                    <h1 class="logo_nombre no-margin centrar-texto">Blog<span class="logo_bold">DeCafé</span></h1>
+                </a>
+
+                <nav class="navegacion">
+                    <a href="nosotros.html" class="navegacion__enlace">Nosotros</a>
+                    <a href="Prestamo.html" class="navegacion__enlace">Cursos</a>
+                    <a href="contacto.html" class="navegacion__enlace">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+    <script src="js/modernizr.js"></script>
+</body>
+
+</html>
